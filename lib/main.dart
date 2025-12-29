@@ -33,7 +33,7 @@ Future<void> main() async
 
     // Load SQL script from assets
     print('Loading SQL schema from assets...');
-    final sqlScript = await rootBundle.loadString('assets/database.sql');
+    final sqlScript = await rootBundle.loadString('assets/sql/database.sql');
     print('SQL script loaded (${sqlScript.length} characters)\n');
 
     // Initialize database with SQL script
@@ -201,7 +201,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Main(),
+      home: const Pomodoro(),
       routes: {
         MAIN: (context) => const Main(),
         POMODORO: (context) => const Pomodoro(),
