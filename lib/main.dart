@@ -11,13 +11,10 @@ import 'package:notes/pages/settings.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as PathProvider;
 
-Future<void> main() async
-{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  try
-  {
-
+  try {
     // Get database path
     final dbPath = await PathProvider.getApplicationDocumentsDirectory();
     final dbFullPath = path.join(dbPath.path, DB_NAME);
@@ -42,10 +39,7 @@ Future<void> main() async
 
     // Optional: Print database info for debugging
     await _printDatabaseInfo();
-
-  }
-  catch (e, stackTrace)
-  {
+  } catch (e, stackTrace) {
     print('\nERROR: Failed to initialize database');
     print('Error: $e');
     print('Stack trace: $stackTrace\n');
@@ -58,10 +52,8 @@ Future<void> main() async
 }
 
 /// Print database information (for debugging)
-Future<void> _printDatabaseInfo() async
-{
-  try
-  {
+Future<void> _printDatabaseInfo() async {
+  try {
     print('═══════════════════════════════════════');
     print('DATABASE INFORMATION');
     print('═══════════════════════════════════════');
@@ -69,16 +61,13 @@ Future<void> _printDatabaseInfo() async
     // Get all tables
     final tables = await DatabaseProvider.getTables();
     print('Tables (${tables.length}):');
-    for (var table in tables)
-    {
+    for (var table in tables) {
       final count = await DatabaseProvider.getRecordCount(table);
       print('   - $table ($count records)');
     }
 
     print('═══════════════════════════════════════\n');
-  }
-  catch (e)
-  {
+  } catch (e) {
     print('Could not retrieve database info: $e\n');
   }
 }
@@ -145,9 +134,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            foregroundColor: AppColors.primary,
-          ),
+          style: TextButton.styleFrom(foregroundColor: AppColors.primary),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
@@ -183,10 +170,7 @@ class MyApp extends StatelessWidget {
           ),
           labelStyle: TextStyle(color: AppColors.textSecondary),
           hintStyle: TextStyle(color: AppColors.textHint),
-          errorStyle: TextStyle(
-            color: AppColors.error,
-            fontSize: 12.0,
-          ),
+          errorStyle: TextStyle(color: AppColors.error, fontSize: 12.0),
         ),
         dividerTheme: DividerThemeData(
           color: AppColors.divider,
@@ -202,11 +186,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: Pomodoro(),
+      home: Main(),
       routes: {
         MAIN: (context) => const Main(),
         POMODORO: (context) => const Pomodoro(),
-        POMODORO_SETTINGS: (context)=> const Settings()
+        POMODORO_SETTINGS: (context) => const Settings(),
       },
     );
   }
