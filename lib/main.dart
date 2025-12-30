@@ -38,6 +38,7 @@ Future<void> main() async
     print('SQL script loaded (${sqlScript.length} characters)\n');
 
     // Initialize database with SQL script
+    await DatabaseProvider.deleteDatabase(dbFullPath);
     await DatabaseProvider.init(dbFullPath, sqlScript);
 
     // Optional: Print database info for debugging
