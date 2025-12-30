@@ -7,7 +7,7 @@ import 'package:notes/consts/specs.dart';
 import 'package:notes/data/database_provider.dart';
 import 'package:notes/pages/main.dart';
 import 'package:notes/pages/pomodoro/pomodoro.dart';
-import 'package:notes/pages/pomodoro/pomodoro_settings.dart';
+import 'package:notes/pages/settings.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as PathProvider;
 
@@ -202,11 +202,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Pomodoro(),
+      home: Pomodoro(),
       routes: {
         MAIN: (context) => const Main(),
         POMODORO: (context) => const Pomodoro(),
-        POMODORO_SETTINGS: (context)=> const PomodoroSettings()
+        POMODORO_SETTINGS: (context)=> const Settings()
       },
     );
   }

@@ -16,7 +16,7 @@ class Pomodoro extends StatefulWidget
 class _PomodoroState extends State<Pomodoro> 
 {
   var consumedTime = 0.0;
-  var time = 5.0;
+  var time = 3600.0;
   Key key = UniqueKey();
   @override
   Widget build(BuildContext context) 
