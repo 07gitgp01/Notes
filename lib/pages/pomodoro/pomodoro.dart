@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:notes/consts/colors.dart';
+import 'package:notes/consts/page_names.dart';
 import 'package:notes/utils/functions.dart';
 import 'package:notes/widgets/pomodoro/circle.dart';
-import 'package:notes/widgets/pomodoro/play_button.dart';
-import 'package:notes/widgets/pomodoro/timer.dart';
+import 'package:notes/widgets/pomodoro/pomodoro_button.dart';
 
 class Pomodoro extends StatefulWidget 
 {
@@ -24,7 +25,8 @@ class _PomodoroState extends State<Pomodoro>
     
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        backgroundColor: AppColors.background,
+        body: SizedBox(
           height: screen_size.height,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -33,10 +35,13 @@ class _PomodoroState extends State<Pomodoro>
                 children: [
                   Align(
                     alignment: AlignmentGeometry.topRight,
-                    child: IconButton(onPressed: (){}, icon: Icon(Icons.settings))
+                    child: IconButton(onPressed: ()
+                    {
+                      Navigator.pushNamed(context, POMODORO_SETTINGS);
+                    }, icon: Icon(Icons.settings, size: 22,))
                     ),
                   SizedBox(height: screen_size.height  * .20),  
-                  Center(child: TimerWidget(totalTime: time, size: 200, onUpdate: (value)
+                  Center(child: PomodoroButton(totalTime: time, size: 200, onUpdate: (value)
                   {
                     setState(() 
                     {

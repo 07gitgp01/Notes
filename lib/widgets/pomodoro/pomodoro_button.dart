@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:notes/consts/colors.dart';
 import 'package:notes/widgets/pomodoro/circle.dart';
 import 'package:vibration/vibration.dart';
 
@@ -158,7 +159,7 @@ class _PomodoroButtonState extends State<PomodoroButton>
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          border: Border.all(width: 6), 
+          border: Border.all(width: 6, color: AppColors.primary), 
           borderRadius: BorderRadius.circular(_buttonSize)
         ),
         child: GestureDetector(
@@ -166,8 +167,7 @@ class _PomodoroButtonState extends State<PomodoroButton>
           child: Container(
             height: _buttonSize,
             width: _buttonSize,
-            decoration: BoxDecoration(
-              border: Border.all(width: 2), 
+            decoration: BoxDecoration( 
               borderRadius: BorderRadius.circular(_buttonSize)
             ),
             child: Stack(
@@ -177,7 +177,7 @@ class _PomodoroButtonState extends State<PomodoroButton>
                   key: _circleKey,
                   size: Size(_buttonSize, _buttonSize),
                   painter: CirclePainter(
-                    paintColor: Colors.amber, 
+                    paintColor: AppColors.primary,
                     ratio: ratio
                   ),
                 ),
@@ -185,7 +185,7 @@ class _PomodoroButtonState extends State<PomodoroButton>
                   height: _buttonZone,
                   width: _buttonZone,
                   decoration: BoxDecoration(
-                    color: Colors.white, 
+                    color: AppColors.background, 
                     borderRadius: BorderRadius.circular(_buttonZone)
                   ),
                   child: Center(
@@ -193,7 +193,7 @@ class _PomodoroButtonState extends State<PomodoroButton>
                       _isPaused 
                         ? Icons.play_arrow_rounded 
                         : Icons.pause_circle_filled_rounded, 
-                      size: _buttonZone - 25,
+                      size: _buttonZone - 25, color: AppColors.primary,
                     ),
                   ),
                 ),
