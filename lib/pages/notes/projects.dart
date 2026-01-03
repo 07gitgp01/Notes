@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes/consts/colors.dart';
+import 'package:notes/data/models/notes/project.dart';
+import 'package:notes/pages/Notes/home.dart';
+import 'package:notes/widgets/notes/project_item.dart';
 import 'package:notes/widgets/notes/status.dart';
 
 class AllProjects extends StatefulWidget {
@@ -10,7 +13,13 @@ class AllProjects extends StatefulWidget {
 }
 
 class _AllProjectsState extends State<AllProjects> {
+  List<Project> items = [];
   @override
+  void initState() {
+    super.initState();
+    items = generateProjects();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -30,6 +39,7 @@ class _AllProjectsState extends State<AllProjects> {
         ),
 
         leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
           child: Icon(Icons.arrow_back, color: Colors.black),
         ),
       ),
@@ -57,7 +67,16 @@ class _AllProjectsState extends State<AllProjects> {
               ),
             ],
           ),
-          Column(),
+          SizedBox(height: 12),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return ProjectItem(project: items[index]);
+              },
+            ),
+          ),
         ],
       ),
     );
