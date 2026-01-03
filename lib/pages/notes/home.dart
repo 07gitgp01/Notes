@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes/consts/colors.dart';
 import 'package:notes/data/models/notes/project.dart';
 import 'package:notes/data/models/notes/task.dart';
+import 'package:notes/pages/notes/projects.dart';
 import 'package:notes/widgets/notes/project_item.dart';
 
 class Home extends StatefulWidget {
@@ -111,14 +112,23 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  Text(
-                    "Show All",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueAccent,
-                      fontSize: 14,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AllProjects()),
+                      );
+                    },
+                    child: Text(
+                      "Show All",
+
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueAccent,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],
