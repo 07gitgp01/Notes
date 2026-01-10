@@ -1,48 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:notes/consts/colors.dart';
-import 'package:notes/data/models/notes/project.dart';
-import 'package:notes/pages/Notes/home.dart';
-import 'package:notes/widgets/notes/project_item.dart';
+import 'package:notes/data/models/notes/task.dart';
 import 'package:notes/widgets/notes/status.dart';
+import 'package:notes/widgets/notes/task_item.dart';
 
-class AllProjects extends StatefulWidget {
-  const AllProjects({super.key});
+class AllTasks extends StatefulWidget {
+  const AllTasks({super.key});
 
   @override
-  State<AllProjects> createState() => _AllProjectsState();
+  State<AllTasks> createState() => _AllTasksState();
 }
 
-class _AllProjectsState extends State<AllProjects> {
+class _AllTasksState extends State<AllTasks> {
+  Task task = Task(
+    title: "Manger",
+    description: "Juste manger les couille du mouton",
+    due_date: DateTime.now(),
+  );
   bool isFocusedOnCompleted = false;
-  List<Project> items = [];
   @override
-  void initState() {
-    super.initState();
-    items = generateProjects();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "All Project(n)",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Icon(Icons.search, color: Colors.black),
-          ],
-        ),
-
+        title: Text("All Tasks"),
         leading: GestureDetector(
-          onTap: () => Navigator.pop(context),
           child: Icon(Icons.arrow_back, color: Colors.black),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
+        actions: [
+          GestureDetector(
+            child: Icon(Icons.search, color: Colors.black),
+            onTap: () {
+              print("hello");
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -72,16 +66,23 @@ class _AllProjectsState extends State<AllProjects> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return ProjectItem(project: items[index]);
-                },
+              child: SingleChildScrollView(
+                child: Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: List.generate(
+                    12,
+                    (index) => TaskItem(context: context, task: task),
+                  ),
+                ),
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
     );
   }

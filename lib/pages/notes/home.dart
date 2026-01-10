@@ -166,16 +166,20 @@ List<Project> generateProjects() {
         Task(
           id: 1,
           title: "Design de l'interface utilisateur",
+          description: "",
           due_date: DateTime(2025, 1, 15),
         ),
         Task(
           id: 2,
           title: "Intégration de l'API de paiement",
+          description: "",
+
           due_date: DateTime(2025, 1, 20),
         ),
         Task(
           id: 3,
           title: "Tests utilisateurs",
+          description: "",
           due_date: DateTime(2025, 1, 25),
         ),
       ],
@@ -189,16 +193,21 @@ List<Project> generateProjects() {
         Task(
           id: 4,
           title: "Choix du design et des couleurs",
+          description: "",
           due_date: DateTime(2025, 1, 10),
         ),
         Task(
           id: 5,
           title: "Développement des pages",
+          description: "",
+
           due_date: DateTime(2025, 1, 18),
         ),
         Task(
           id: 6,
           title: "Déploiement en ligne",
+          description: "",
+
           due_date: DateTime(2025, 1, 22),
         ),
       ],
@@ -212,21 +221,26 @@ List<Project> generateProjects() {
         Task(
           id: 7,
           title: "Analyse des besoins",
+          description: "",
+
           due_date: DateTime(2025, 1, 12),
         ),
         Task(
           id: 8,
           title: "Création de la base de données",
+          description: "",
           due_date: DateTime(2025, 1, 17),
         ),
         Task(
           id: 9,
           title: "Module de gestion des notes",
+          description: "",
           due_date: DateTime(2025, 1, 24),
         ),
         Task(
           id: 10,
           title: "Module de gestion des absences",
+          description: "",
           due_date: DateTime(2025, 1, 28),
         ),
       ],
@@ -240,11 +254,15 @@ List<Project> generateProjects() {
         Task(
           id: 11,
           title: "Formation du modèle",
+          description: "",
+
           due_date: DateTime(2025, 1, 14),
         ),
         Task(
           id: 12,
           title: "Intégration avec l'API",
+          description: "",
+
           due_date: DateTime(2025, 1, 19),
         ),
       ],
@@ -259,15 +277,18 @@ List<Project> generateProjects() {
           id: 13,
           title: "Système de tracking des exercices",
           due_date: DateTime(2025, 1, 16),
+          description: "",
         ),
         Task(
           id: 14,
           title: "Base de données nutritionnelle",
           due_date: DateTime(2025, 1, 21),
+          description: "",
         ),
         Task(
           id: 15,
           title: "Graphiques de progression",
+          description: "",
           due_date: DateTime(2025, 1, 26),
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes/consts/colors.dart';
 import 'package:notes/data/models/notes/project.dart';
+import 'package:notes/pages/notes/tasks.dart';
 
 class ProjectItem extends StatelessWidget {
   Project project;
@@ -17,7 +18,12 @@ class ProjectItem extends StatelessWidget {
           children: [
             Expanded(
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AllTasks()),
+                  );
+                },
                 child: Row(
                   spacing: 12,
                   children: [
@@ -49,7 +55,6 @@ class ProjectItem extends StatelessWidget {
                 ),
               ),
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
           ],
         ),
       ),

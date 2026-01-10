@@ -1,19 +1,31 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:notes/consts/colors.dart';
 
 Widget StatusWidget({
   required String text,
   required bool active,
-  Color? statusColor,
   Function? onClick,
 }) {
-  return Container(
-    padding: EdgeInsets.all(8),
-    decoration: BoxDecoration(
-      color: statusColor,
-      borderRadius: BorderRadius.circular(20),
+  return Expanded(
+    child: InkWell(
+      onTap: () => onClick?.call(),
+      child: Container(
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: active ? Colors.white : null,
+            ),
+          ),
+        ),
+        decoration: BoxDecoration(
+          color: active ? AppColors.primary : AppColors.disabled,
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
     ),
-    child: Text(text, style: TextStyle(fontWeight: FontWeight.bold)),
   );
 }
