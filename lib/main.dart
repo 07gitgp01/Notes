@@ -101,11 +101,7 @@ class MyApp extends StatelessWidget {
           secondary: AppColors.secondary,
           secondaryContainer: AppColors.accent,
           onSecondary: AppColors.textOnSecondary,
-
-          // Background colors
-          background: AppColors.background,
           surface: AppColors.surface,
-          onBackground: AppColors.textPrimary,
           onSurface: AppColors.textPrimary,
 
           // Error colors
@@ -114,7 +110,7 @@ class MyApp extends StatelessWidget {
 
           // Other theme colors
           brightness: Brightness.light,
-          surfaceVariant: AppColors.card,
+          surfaceContainerHighest: AppColors.card,
           outline: AppColors.border,
           outlineVariant: AppColors.divider,
           shadow: AppColors.shadow,

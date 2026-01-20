@@ -9,7 +9,7 @@ class DatabaseProvider
   /// Initialize database with SQL script
   /// @param database_fullpath: Full path to database file
   /// @param tables_creation_query: SQL script content (from assets or string)
-  static Future<void> init(String database_fullpath, String tables_creation_query) async
+  static Future<void> init(String databaseFullpath, String tablesCreationQuery) async
   {
     // Initialize FFI for desktop platforms (Windows, macOS, Linux)
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
@@ -18,16 +18,16 @@ class DatabaseProvider
       databaseFactory = databaseFactoryFfi;
     }
 
-    print('Initializing database at: $database_fullpath');
+    print('Initializing database at: $databaseFullpath');
 
     db = await openDatabase(
-      database_fullpath,
+      databaseFullpath,
       version: 1,
       onCreate: (Database database, int version) async {
         print('Creating database schema...');
 
         // Execute the SQL script
-        await _executeSqlScript(database, tables_creation_query);
+        await _executeSqlScript(database, tablesCreationQuery);
 
         print('Database schema created successfully');
       },
